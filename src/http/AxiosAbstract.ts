@@ -7,10 +7,17 @@ export abstract class AHttpClient {
             .get<any>('etap_edukacyjny/')
             .then(response => response.data);
 
-    public static getPlacowki = () =>
-        axiosInstance
-            .get<any>('placowki/')
+    public static getPlacowki = (query: { [key: string]: any } = {}) => {
+        const queryParamArray = Object.keys(query)
+            .map((key) => [ `${key}=${query[key]}` ])
+            .join('&');
+
+        const queryParam = queryParamArray.length ? `?${queryParamArray}` : '';
+
+        return axiosInstance
+            .get<any>(`placowki/${queryParam}`)
             .then(response => response.data);
+    };
 
     // public static getPage = (url: string, charset?: string) => {
     //     const queryString = charset
