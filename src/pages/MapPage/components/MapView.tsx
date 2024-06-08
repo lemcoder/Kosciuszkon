@@ -6,21 +6,22 @@ import {
 } from 'react-leaflet';
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import styles from './MapView.module.css';
 
 type Props = {};
 
 const MapView = (props: Props) => {
     const { data } = useQuery({
         queryFn: AHttpClient.getPlacowki,
-        queryKey: ['mapView'],
+        queryKey: [ 'placowki' ],
     });
 
     return (
-        <div style={{ height: '500px', width: '500px' }}>
+        <div className={styles.mapContainer}>
             <MapContainer
                 center={[
-                    51.505,
-                    -0.09,
+                    50.0647443,
+                    19.9381152,
                 ]}
                 scrollWheelZoom={false}
                 zoom={13}
