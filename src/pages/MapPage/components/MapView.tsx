@@ -1,13 +1,20 @@
+import { AHttpClient } from '@/http/AxiosAbstract';
 import {
     MapContainer,
+    Marker,
     TileLayer,
-    useMap,
 } from 'react-leaflet';
+import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 
 type Props = {};
 
 const MapView = (props: Props) => {
+    const { data } = useQuery({
+        queryFn: AHttpClient.getPlacowki,
+        queryKey: ['mapView'],
+    });
+
     return (
         <div style={{ height: '500px', width: '500px' }}>
             <MapContainer
@@ -23,6 +30,16 @@ const MapView = (props: Props) => {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
 
+                {data && (data["hydra:member"]?.map((location, index) => (
+                    <Marker
+                        key={index}
+                        position={[
+                            location.geolokalizacja.latitude,
+                            location.geolokalizacja.longitude,
+                        ]}
+                    >
+                    </Marker>
+                )))}
             </MapContainer>
         </div>
     );

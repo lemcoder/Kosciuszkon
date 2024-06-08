@@ -9,7 +9,7 @@ type Props = {};
 const MapPage = (props: Props) => {
 
     const { data } = useQuery({
-        queryFn: AHttpClient.getEtapEdukacyjny,
+        queryFn: AHttpClient.getPlacowki,
         queryKey: [ 'mapPage' ],
     });
 

@@ -9,7 +9,8 @@ export abstract class AHttpClient {
 
     public static getPlacowki = () =>
         axiosInstance
-            .get<any>('placowki/');
+            .get<any>('placowki/?page=1')
+            .then(response => response.data);
 
     // public static getPage = (url: string, charset?: string) => {
     //     const queryString = charset
