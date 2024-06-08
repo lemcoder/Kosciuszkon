@@ -23,13 +23,8 @@ function App() {
                 <BrowserRouter basename={'/kosciuszkon/'}>
                     <Routes>
                         <Route
-                            element={<LandingPage />}
-                            index
-                        />
-
-                        <Route
                             element={<MapPage />}
-                            path="map"
+                            index
                         />
                     </Routes>
                 </BrowserRouter>
