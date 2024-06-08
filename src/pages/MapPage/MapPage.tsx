@@ -1,6 +1,6 @@
 import { AHttpClient } from '@/http/AxiosAbstract';
 import { useQuery } from '@tanstack/react-query';
-import Filters from './components/Filters';
+import Filters from "./components/Filters";
 import MapView from './components/MapView';
 import styles from './MapPage.module.css';
 

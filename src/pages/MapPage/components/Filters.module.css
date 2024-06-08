@@ -1,0 +1,30 @@
+.sidebarContainer{
+    height:100%;
+    width:100%;
+    margin:10px;
+    font-family: "Gill Sans", sans-serif;
+}
+
+.formContainer{
+    height:100%;
+    width:100%;
+    
+    label{
+      font-size: 12px;
+    }
+    h2{
+        font-size: 12px;
+    }
+    option{
+        font-size: 12px;
+    }
+    input{
+        border-color: #d3d3d3;
+        border-width:2px;
+        color: black;
+        visibility: visible;
+        background-color: #FFFFFF;
+        border-radius: 5px;
+        font-size: 15px;
+    }
+}
