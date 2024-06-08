@@ -53,7 +53,7 @@ const PageMarkers = ({
             <Circle
                 center={{ lat: location.geolokalizacja.latitude, lng: location.geolokalizacja.longitude }}
                 fillColor="blue"
-                fillRule="inherit"
+                fillOpacity={.05}
                 radius={1000}
                 weight={1}
             />
