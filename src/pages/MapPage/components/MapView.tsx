@@ -2,17 +2,15 @@ import {
     MapContainer,
     TileLayer,
 } from 'react-leaflet';
-import { useState } from 'react';
+import { TFilters } from '../MapPage';
 import PageMarkers from './components/PageMarkers';
 import styles from './MapView.module.css';
 
-type Props = {};
+type Props = {
+    filters: TFilters;
+};
 
-const MapView = (props: Props) => {
-
-    const [ queryState, setQueryState ] = useState({
-        page: 1,
-    });
+const MapView = ({ filters }: Props) => {
 
     // const { data: data1 } = useQuery({
     //     enabled: !!queryState.page,
@@ -24,7 +22,7 @@ const MapView = (props: Props) => {
     //     refetchOnWindowFocus: false,
     // });
 
-    const a = [ ...Array(2).keys() ];
+    const a = [ ...Array(3).keys() ];
 
     return (
         <div className={styles.mapContainer}>
@@ -53,8 +51,10 @@ const MapView = (props: Props) => {
                 )))} */}
                 {a.map(number => (
                     <PageMarkers
+                        etap={filters.etap}
                         key={number}
                         page={number}
+                        powiat={filters.powiat}
                     />
                 ))}
             </MapContainer>

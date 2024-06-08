@@ -5,23 +5,32 @@ import {
 } from 'react-leaflet';
 import { Icon } from 'leaflet';
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
 import school from '/school.svg';
 
 type Props = {
     page: number;
+    powiat: string | null;
+    etap: string | null;
 };
 
-const PageMarkers = ({ page }: Props) => {
+const PageMarkers = ({
+    etap,
+    page,
+    powiat,
+}: Props) => {
 
     const { data } = useQuery({
-        enabled: !!page,
+        enabled: !!page && !!powiat,
         queryFn: () => AHttpClient.getPlacowki({
+            ...(!!etap && { etap_edukacji_id: etap }),
             page,
+            ...(!!powiat && { powiat_kod_teryt: powiat }),
         }),
         queryKey: [
             'placowki',
             page,
+            powiat,
+            etap,
         ],
         refetchOnWindowFocus: false,
     });

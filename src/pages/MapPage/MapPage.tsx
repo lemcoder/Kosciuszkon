@@ -1,22 +1,22 @@
-import { AHttpClient } from '@/http/AxiosAbstract';
-import { useQuery } from '@tanstack/react-query';
-import Filters from "./components/Filters";
+import { useState } from 'react';
+import Filters from './components/Filters';
 import MapView from './components/MapView';
 import styles from './MapPage.module.css';
 
 type Props = {};
 
-const MapPage = (props: Props) => {
+export type TFilters = {
+    powiat: string | null;
+    etap: string | null;
+};
 
-    const { data } = useQuery({
-        queryFn: AHttpClient.getPlacowki,
-        queryKey: [ 'mapPage' ],
-    });
+const MapPage = (props: Props) => {
+    const [ mapFilters, setMapFilters ] = useState<TFilters>({});
 
     return (
         <div className={styles.wrapper}>
-            <Filters />
-            <MapView />
+            <Filters setFilters={setMapFilters} />
+            <MapView filters={mapFilters} />
         </div>
     );
 };
