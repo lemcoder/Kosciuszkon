@@ -1,5 +1,6 @@
 // import reactLogo from '../assets/react.svg'
 // import viteLogo from '/vite.svg'
+import 'leaflet/dist/leaflet.css';
 import {
     BrowserRouter,
     Route,
@@ -11,7 +12,6 @@ import {
 } from '@tanstack/react-query';
 import LandingPage from '@/pages/LandingPage/LandingPage';
 import MapPage from '@/pages/MapPage/MapPage';
-import MapPahe from '@/pages/MapPage/MapPahe';
 import styles from './App.module.css';
 
 function App() {
