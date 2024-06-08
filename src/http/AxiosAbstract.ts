@@ -7,6 +7,10 @@ export abstract class AHttpClient {
             .get<any>('etap_edukacyjny/')
             .then(response => response.data);
 
+    public static getPlacowki = () => 
+        axiosInstance
+            .get<any>('placowki/')
+
     // public static getPage = (url: string, charset?: string) => {
     //     const queryString = charset
     //         ? `&fromCharset=${charset}`
