@@ -1,6 +1,5 @@
-import {
-    useState,
-} from 'react';
+import { NavLink } from 'react-router-dom';
+import { useState } from 'react';
 import styles from './LandingPage.module.css';
 
 const LandingPage = () => {
@@ -8,6 +7,7 @@ const LandingPage = () => {
         <main className={styles.wrapper}>
             <div className={styles.titleContainer}>
                 <h2>KOŚCIUSZKON</h2>
+                <NavLink to="map">Map page</NavLink>
             </div>
         </main>
     );

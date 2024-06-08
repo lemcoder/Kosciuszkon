@@ -4,7 +4,7 @@ import axios, {
 } from 'axios';
 
 const axiosInstance: AxiosInstance = axios.create({
-    baseURL: import.meta.env.VITE_APP_BASE_URL,
+    baseURL: 'https://api-rspo.mein.gov.pl/api/',
 });
 
 axiosInstance.interceptors.request.use(

@@ -10,6 +10,8 @@ import {
     QueryClientProvider,
 } from '@tanstack/react-query';
 import LandingPage from '@/pages/LandingPage/LandingPage';
+import MapPage from '@/pages/MapPage/MapPage';
+import MapPahe from '@/pages/MapPage/MapPahe';
 import styles from './App.module.css';
 
 function App() {
@@ -23,6 +25,11 @@ function App() {
                         <Route
                             element={<LandingPage />}
                             index
+                        />
+
+                        <Route
+                            element={<MapPage />}
+                            path="map"
                         />
                     </Routes>
                 </BrowserRouter>
