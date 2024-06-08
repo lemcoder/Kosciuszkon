@@ -1,20 +1,30 @@
-import { AHttpClient } from '@/http/AxiosAbstract';
 import {
     MapContainer,
-    Marker,
     TileLayer,
 } from 'react-leaflet';
-import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import { useState } from 'react';
+import PageMarkers from './components/PageMarkers';
 import styles from './MapView.module.css';
 
 type Props = {};
 
 const MapView = (props: Props) => {
-    const { data } = useQuery({
-        queryFn: AHttpClient.getPlacowki,
-        queryKey: [ 'placowki' ],
+
+    const [ queryState, setQueryState ] = useState({
+        page: 1,
     });
+
+    // const { data: data1 } = useQuery({
+    //     enabled: !!queryState.page,
+    //     queryFn: () => AHttpClient.getPlacowki(queryState),
+    //     queryKey: [
+    //         'placowki',
+    //         queryState,
+    //     ],
+    //     refetchOnWindowFocus: false,
+    // });
+
+    const a = [ ...Array(2).keys() ];
 
     return (
         <div className={styles.mapContainer}>
@@ -31,7 +41,7 @@ const MapView = (props: Props) => {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
 
-                {data && (data["hydra:member"]?.map((location, index) => (
+                {/* {data1 && (data1["hydra:member"]?.map((location, index) => (
                     <Marker
                         key={index}
                         position={[
@@ -40,7 +50,13 @@ const MapView = (props: Props) => {
                         ]}
                     >
                     </Marker>
-                )))}
+                )))} */}
+                {a.map(number => (
+                    <PageMarkers
+                        key={number}
+                        page={number}
+                    />
+                ))}
             </MapContainer>
         </div>
     );

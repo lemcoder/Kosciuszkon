@@ -4,7 +4,9 @@ type Props = {};
 
 const Filters = (props: Props) => {
     return (
-        <div>Filters</div>
+        <div>
+            Filters
+        </div>
     );
 };
 
