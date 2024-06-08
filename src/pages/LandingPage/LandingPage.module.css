@@ -1,0 +1,29 @@
+.wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.titleContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: column;
+    gap: 16px;
+    height: 35dvh;
+
+    h2 {
+        font-size: 2rem;
+        text-transform: uppercase;
+        font-weight: bolder;
+    }
+}
+
+.pages {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
